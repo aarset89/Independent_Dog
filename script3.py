@@ -1,9 +1,9 @@
-import webiopi
-import RPi.GPIO as GPIO
-import time
+import webiopi				#Webiopi library
+import RPi.GPIO as GPIO		#GPIO library
+import time					#To set time to the macros
 
-GPIO = webiopi.GPIO
-comida = 2
+GPIO = webiopi.GPIO			#renaming the library function
+comida = 2					#Skiping magicStrings
 agua_in = 4
 agua_out = 17
 global timer_comida, timer_agua_in, timer_agua_out
@@ -13,7 +13,7 @@ timer_agua_out = 0
 slider = 26
 GPIO.setFunction(slider, GPIO.PWM)
 
-def loop():
+def loop():  #loop to exec the macros
     global timer_comida, timer_agua_in, timer_agua_out
     if(timer_comida > 0):
         GPIO.digitalWrite(comida, GPIO.HIGH)     # set the pin LOW
@@ -36,8 +36,8 @@ def loop():
         GPIO.digitalWrite(agua_in, GPIO.LOW)    # set the pin HIGH
     webiopi.sleep(1)
 
-@webiopi.macro
-def timer_30g():
+@webiopi.macro		#calling a macro
+def timer_30g():	#def a macro
     global timer_comida
     timer_comida = 2    # start the timer
 	

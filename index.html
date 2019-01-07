@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WebIOPi | Light Control</title>
+    <script type="text/javascript" src="/webiopi.js"></script>
+    <script type="text/javascript">
+    webiopi().ready(function() {
+	
+	
+	//var sendButton = webiopi().createButton("sendButton", "Comida", function() {
+    //webiopi().callMacro("timer5")
+    //});
+    //$("#controls").append(sendButton);
+		//webiopi().setFunction(14, "out");		
+
+	
+        // Create a "Light" labeled button for GPIO 17
+        var button = webiopi().createButton(2, "Comida",function() {
+    webiopi().callMacro("timer5")
+    });
+
+        // Append button to HTML element with ID="controls" using jQuery
+        $("#controls").append(button);
+
+        // Refresh GPIO buttons
+        // pass true to refresh repeatedly of false to refresh once
+		
+               webiopi().refreshGPIO(true);
+    });
+
+    </script>
+    <style type="text/css">
+        button {
+            display: block;
+            margin: 35px 35px 35px 35px;
+            width: 300px;
+            height: 40px;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+	
+		}
+	
+		
+    </style>
+</head>
+<body>
+    <div id="controls" style="position: absolute; left: 150px; top: 200px;" align="center"></div>
+	<div id="content" align="center"></div><br>
+
+        <div><img  width="320" height="320" src="http://192.168.0.254:8080/?action=stream"><br/></div><br>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content = "height = device-height, width = 420, user-scalable = no" />
+
+    <title>Robot</title>
+
+    <script type="text/javascript" src="/webiopi.js"></script>
+
+    <script type="text/javascript">
+
+    webiopi().ready(function() {
+
+        var button;
+
+ 
+
+        // Command buttons
+
+        button = webiopi().createMacroButton("macro", "<", "MoveLeft");
+
+        $("#middle").append(button); // middle button
+
+ 
+
+        button = webiopi().createMacroButton("macro", "X", "Stop");
+
+        $("#middle").append(button); // middle button
+
+ 
+
+        button = webiopi().createMacroButton("macro", ">", "MoveRight");
+
+        $("#middle").append(button); // middle button
+
+ 
+
+        button = webiopi().createMacroButton("macro", "/\\", "MoveForward");
+
+        $("#up").append(button); //top button
+
+ 
+
+        button = webiopi().createMacroButton("macro", "\\/", "MoveBackward");
+
+        $("#down").append(button); // bottom button
+
+                
+
+        webiopi().refreshGPIO(true);
+
+    });
+
+ 
+
+    </script>
+
+    <style type="text/css">
+
+        button {
+
+            margin: 5px 5px 5px 5px;
+
+            width: 45px;
+
+            height: 45px;
+
+            font-size: 24pt;
+
+            font-weight: bold;
+
+            color: black;
+
+        }
+
+ 
+
+        .LOW {
+
+            background-color: White;
+
+        }
+
+ 
+
+        .HIGH {
+
+            background-color: Red;
+
+        }
+
+ 
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div id="content" align="center">
+
+    <td>    
+
+        <img src="http://186.29.249.106:8080/?action=stream"  align="center">
+		<img src="http://192.168.0.254:8080/?action=stream"  align="center">
+
+
+ 
+
+    </td>
+
+        <div id="up"></div>
+
+        <div id="middle"></div>
+
+        <div id="down"></div>
+
+      </div>
+
+ 
+
+</body>
+
+</html>
